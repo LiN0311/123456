@@ -1,0 +1,19 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>User</b> and script/action name <b>login</b></p>
+</div>
+
+<?php
+// the variable/array 'user' and 'form' is generated and set in the
+// controller 'user' and action 'delete'
+//
+// all functions to the model user like 'getId()' and 'getFirstname() are
+// functions of the model 'user' in the file 'models\user.php
+?>
+
+<div class="page-header">
+	<a class="pull-right" href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>"><button type="button" class="btn btn-default">Abbrechen</button></a>
+	<h3>Benutzer anmelden</h3>
+</div>
+
+<?php echo $this->form; ?>

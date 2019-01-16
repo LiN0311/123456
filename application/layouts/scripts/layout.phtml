@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FRIENDSHIP :)</title>
+<!-- metadata -->
+        <meta charset="utf-8"/>
+        <!--<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- favicon -->
+        <link rel="icon" href="/favicon/ms-icon-144x144.png">
+<!-- linkdata -->
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="/css/all.min.css"> -->
+        <link rel="stylesheet" href="/css/customizing.css">
+        <!-- Apple -->
+        <!--Favicon-->
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+<!-- scriptdata -->
+        <!-- Bootstrap -->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+<!-- Wrap all page content here -->
+        <div id="wrap">
+            <!-- START Fixed navbar -->
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                  </button>
+                  <a class="navbar-brand" href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>"><img id="logo" src="/img/logo.png"></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="navbar-nav mx-auto">
+                    <li class="<?php if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()=='index') echo 'active'; ?>">
+                        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>"><button type="button" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-home"></span>&nbsp;Home&nbsp;</button></a>
+                    </li>
+                    <?php if(Zend_Auth::getInstance()->hasIdentity()){?>
+                    <li class="<?php if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()=='user') echo 'active'; ?>">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list')); ?>"><button type="button" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-user"></span>&nbsp;User&nbsp;</button></a>
+                    </li>
+                    <?php } ?>
+                  </ul>
+                    <?php if(Zend_Auth::getInstance()->hasIdentity()){?>
+                        <form class="form-inline my-2 my-lg-0">
+                            <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'search')); ?>">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Freund suchen">
+                                <button class="btn btn-outline-secondary btn-sm" type="submit">Suchen</button>
+                            </a>
+                    </form>
+                    <?php } ?>
+                  <ul class="navbar-nav ml-auto">
+                    <?php if(!Zend_Auth::getInstance()->hasIdentity()){?>
+                    <form class="form-inline my-2 my-lg-0">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'search')); ?>">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Freund suchen">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Suchen</button>
+                        </a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'create')); ?>">
+                            <button type="button" class="btn btn-default">Registrieren</button>
+                        </a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'login')); ?>">
+                            <button type="button" class="btn btn-primary">Anmelden</button>
+                        </a>
+                    </form>
+                    <?php } else {?>
+                    <form class="form-inline">
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'logout')); ?>">
+                            <button type="button" class="btn btn-danger">Abmelden</button>
+                        </a>
+                    </form>
+                    <?php } ?>
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarSupportedContent"><span class="fa fa-cog"></span></a>
+                      <ul class="dropdown-menu">
+                        <li class="dropdown-header">INDEX</li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>">index</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-header">USER</li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index')); ?>">index</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list')); ?>">list</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'view')); ?>">view</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'create')); ?>">create</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'update')); ?>">update</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete')); ?>">delete</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'login')); ?>">login</a></li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'logout')); ?>">logout</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-header">ERROR</li>
+                        <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'error', 'action' => 'index')); ?>">index</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li class="dropdown-item"><a href="" onClick="location.reload();"><span class="fa fa-refresh"></span>&nbsp;Refresh</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+            <!-- END Fixed navbar -->
+            <!-- START page content -->
+            <div class="container">
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <!-- END page content -->
+        </div>
+        <!-- END Wrap -->
+        <!-- START footer -->
+        <!--<div id="footer">
+          <div class="container">
+            <p class="text-muted">Place sticky footer content here.</p>
+          </div>
+        </div>-->
+        <!-- END footer-->
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="/js/jquery/jquery.3.1.0.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/js/bootstrap/bootstrap.min.js"></script>
+        <!-- u. a. Linkopener for mobiles -->
+        <script src="/js/webkit.min.js"></script>
+        <!-- placeholder images -->
+        <script src="/js/holder/holder.min.js"></script>
+    </body>
+</html>

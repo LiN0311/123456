@@ -1,0 +1,28 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>User</b> and script/action name <b>delete</b></p>
+</div>
+
+<?php
+// the variable/array 'user' and 'form' is generated and set in the
+// controller 'user' and action 'delete'
+//
+// all functions to the model user like 'getId()' and 'getFirstname() are
+// functions of the model 'user' in the file 'models\user.php
+?>
+
+<?php $user = $this->user; ?>
+
+<div class="page-header">
+	<a class="pull-right" href="<?php echo $this->url(array('controller' => 'user', 'action' => 'view', 'id' => $user->getId())); ?>"><button type="button" class="btn btn-default">Abbrechen</button></a>
+	<h3>Benutzer löschen</h3>
+</div>
+
+<div class="alert alert-danger alert-dismissible fade in" role=alert>
+	<!--<button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button>-->
+	<h4><?php echo $user->getFirstname() . ' ' . $user->getLastname(); ?></h4>
+	<p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+	<p></p>
+	<a class="pull-right" href="<?php echo $this->url(array('controller' => 'user', 'action' => 'view', 'id' => $user->getId())); ?>"><button type="button" class="btn btn-default">Abbrechen</button></a>
+	<?php echo $this->form; ?>
+</div>
