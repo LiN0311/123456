@@ -7,6 +7,7 @@ class Application_Form_UserRegister extends Zend_Form{
 		$this->setMethod('POST');
 		$this->setAttrib('class', 'form-signin');
 
+    /* Firstname*/
 		$this->addElement('text', 'user_firstname', array(
             'required'       => true,
             'label'          => 'Firstname',
@@ -17,7 +18,7 @@ class Application_Form_UserRegister extends Zend_Form{
 			      'placeholder'  	 => 'First name',
 			      'autofocus'	 	 => true,
         ));
-
+    /*Lastname*/
 		$this->addElement('text', 'user_lastname', array(
             'required'       => true,
             'label'          => 'Lastname',
@@ -29,7 +30,7 @@ class Application_Form_UserRegister extends Zend_Form{
       			'autofocus'		 => false,
         ));
 
-
+    /*Email*/
 		$this->addElement('text', 'user_email', array(
             'required'       => true,
             'label'          => 'Email',
@@ -41,6 +42,7 @@ class Application_Form_UserRegister extends Zend_Form{
       			'autofocus'		   => false,
         ));
 
+    /*Password*/
 		$this->addElement('password', 'user_password', array(
             'required'       => true,
             'label'          => 'Passwort',

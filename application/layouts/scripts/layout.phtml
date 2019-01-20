@@ -3,6 +3,10 @@
     <head>
         <title>FRIENDSHIP :)</title>
 <!-- metadata -->
+        <!--Autor-->
+        <meta name="Autor" content="Lisa Nagl">
+        <meta name="Year" content="2019">
+
         <meta charset="utf-8"/>
         <!--<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -10,14 +14,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <!-- favicon -->
         <link rel="icon" href="/favicon/ms-icon-144x144.png">
-<!-- linkdata -->
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <!--<link rel="stylesheet" href="/css/all.min.css"> -->
-        <link rel="stylesheet" href="/css/customizing.css">
-        <!-- Apple -->
-        <!--Favicon-->
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -35,6 +32,12 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+<!-- linkdata -->
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="/css/all.min.css"> -->
+        <link rel="stylesheet" href="/css/customizing.css">
 <!-- scriptdata -->
         <!-- Bootstrap -->
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -60,11 +63,11 @@
                 <div id="navbar" class="collapse navbar-collapse">
                   <ul class="navbar-nav mx-auto">
                     <li class="<?php if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()=='index') echo 'active'; ?>">
-                        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>"><button type="button" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-home"></span>&nbsp;Home&nbsp;</button></a>
+                        <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>"><img id="logo" src="/img/icons/home.png" class="btn my-2 my-sm-0"><span class="fa fa-home"></span>Home</button></a>
                     </li>
                     <?php if(Zend_Auth::getInstance()->hasIdentity()){?>
                     <li class="<?php if(Zend_Controller_Front::getInstance()->getRequest()->getControllerName()=='user') echo 'active'; ?>">
-                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list')); ?>"><button type="button" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-user"></span>&nbsp;User&nbsp;</button></a>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'list')); ?>"><img id="logo" src="/img/icons/user.png" class="btn my-2 my-sm-0"><span class="fa fa-user">Users</span></button></a>
                     </li>
                     <?php } ?>
                   </ul>
@@ -98,7 +101,7 @@
                     </form>
                     <?php } ?>
                     <li class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarSupportedContent"><span class="fa fa-cog"></span></a>
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarSupportedContent"><img id="logo" src="/img/icons/settings.png"></a>
                       <ul class="dropdown-menu">
                         <li class="dropdown-header">INDEX</li>
                         <li class="dropdown-item"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>">index</a></li>
