@@ -9,6 +9,9 @@ class Application_Model_Person{
     protected $_birthday = null;
     protected $_phone = null;
     protected $_gender = null;
+		protected $_createdate = null;
+		protected $_updatedate = null;
+		protected $_deletedate = null;
 
     public function setId($id){
         $id = (int) $id;
@@ -91,16 +94,50 @@ class Application_Model_Person{
         return $this->_gender;
     }
 
+		public function setCreatedate($value){
+	        if (is_string($value)){
+	            $this->_createdate = $value;
+	        }
+	    }
+
+	    public function getCreatedate(){
+	        return $this->_createdate;
+	    }
+
+		public function setUpdatedate($value){
+	        if (is_string($value)){
+	            $this->_updatedate = $value;
+	        }
+	    }
+
+	    public function getUpdatedate(){
+	        return $this->_updatedate;
+	    }
+
+		public function setDeletedate($value){
+	        if (is_string($value)){
+	            $this->_deletedate = $value;
+	        }
+	    }
+
+	    public function getDeletedate(){
+	        return $this->_deletedate;
+	    }
+
+
     public function toArray(){
         $data = array(
-            'user_id'					=> $this->getId(),
-            'user_firstname'	=> $this->getFirstname(),
-            'user_lastname'		=> $this->getLastname(),
-            'user_status'			=> $this->getStatus(),
-						'user_city'				=> $this->getCity(),
-            'user_birthday'		=> $this->getBirthday(),
-            'user_phone'			=> $this->getPhone(),
-            'user_gender'			=> $this->getGender(),
+            'person_id'					=> $this->getId(),
+            'person_firstname'	=> $this->getFirstname(),
+            'person_lastname'		=> $this->getLastname(),
+            'person_status'			=> $this->getStatus(),
+						'person_city'				=> $this->getCity(),
+            'person_birthday'		=> $this->getBirthday(),
+            'person_phone'			=> $this->getPhone(),
+            'person_gender'			=> $this->getGender(),
+						'person_createdate'	=> $this->getCreatedate(),
+            'person_updatedate'	=> $this->getUpdatedate(),
+            'person_deletedate'	=> $this->getDeletedate(),
         );
 
         return $data;

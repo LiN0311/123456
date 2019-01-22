@@ -1,6 +1,6 @@
 <br /><br />
 <div id="view-content">
-	<p>View script for controller <b>User</b> and script/action name <b>list</b></p>
+	<p>View script for controller <b>Person</b> and script/action name <b>list</b></p>
 </div>
 
 <?php
@@ -12,15 +12,15 @@
 ?>
 
 <div class="list-group">
-<?php foreach($this->users as $user): ?>
-<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'view', 'id' => $user->getId())); ?>" class="list-group-item ">
+<?php foreach($this->persons as $person): ?>
+<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'view', 'id' => $person->getId())); ?>" class="list-group-item ">
 <div class="media">
   <div class="media-left">
       <img alt="Generic placeholder image" class="media-object" data-src="holder.js/80x60">
   </div>
   <div class="media-body">
-    <h5 class="media-heading"><?php echo '<b>' . $user->getEmail() . '</b>'; ?></h5>
-    *<p><?php echo $user->getEmail() . ' ' ?></p>
+    <h5 class="media-heading"><?php echo '<b>' . $person->getFirstname() . '</b>'; ?></h5>
+    *<p><?php echo $person->getLastname() . ' ' ?></p>
   </div>
 </div>
 </a>

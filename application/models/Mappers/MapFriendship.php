@@ -1,20 +1,20 @@
 <?php
 
-class Application_Model_Mappers_RawUser{
+class Application_Model_Mappers_MapFriendship{
     protected $_dbTable = null;
 
     public function getTable(){
         if (!isset($this->_dbTable)){
-            $this->_dbTable = new Application_Model_DbTable_RawUser();
+            $this->_dbTable = new Application_Model_DbTable_MapFriendship();
         }
         return $this->_dbTable;
     }
 
     public function getModel(Zend_Db_Table_Row $row){
-        $model = new Application_Model_User();
+        $model = new Application_Model_Friendship();
         $model->setId($row->ID);
-        $model->setEmail($row->EMAIL);
-        $model->setPassword($row->PASSWORD);
+        $model->setPerson1($row->PERSON1);
+        $model->setPerson2($row->PERSON2);
         $model->setCreatedate($row->CREATEDATE);
         $model->setUpdatedate($row->UPDATEDATE);
         $model->setDeletedate($row->DELETEDATE);
@@ -40,11 +40,11 @@ class Application_Model_Mappers_RawUser{
 		return $model;
     }
 
-	public function fetchSinglebyEmail($email){
+	public function fetchSinglebyPerson1($person1){
 
 
 		$select = $this->getTable()->select();
-		$select->where('EMAIL = "' . $email . '"');
+		$select->where('PERSON1 = "' . $person1 . '"');
 
 		$row = $this->getTable()->fetchRow($select);
 
@@ -56,6 +56,75 @@ class Application_Model_Mappers_RawUser{
 
 		return $model;
     }
+
+    public function fetchSinglebyPerson2($person2){
+
+
+      $select = $this->getTable()->select();
+      $select->where('PERSON2 = "' . $person2 . '"');
+
+      $row = $this->getTable()->fetchRow($select);
+
+      if (is_null($row)){
+        return false;
+      }
+
+      $model = $this->getModel($row);
+
+      return $model;
+      }
+
+      public function fetchSinglebyCreatedate($createdate){
+
+
+        $select = $this->getTable()->select();
+        $select->where('CREATEDATE = "' . $createdate . '"');
+
+        $row = $this->getTable()->fetchRow($select);
+
+        if (is_null($row)){
+          return false;
+        }
+
+        $model = $this->getModel($row);
+
+        return $model;
+        }
+
+      public function fetchSinglebyUpdatedate($updatedate){
+
+
+      $select = $this->getTable()->select();
+      $select->where('UPDATEDATE = "' . $updatedate . '"');
+
+      $row = $this->getTable()->fetchRow($select);
+
+      if (is_null($row)){
+        return false;
+      }
+
+      $model = $this->getModel($row);
+
+      return $model;
+        }
+
+
+    public function fetchSinglebyDeletedate($deletedate){
+
+
+      $select = $this->getTable()->select();
+      $select->where('DELETEDATE = "' . $deletedate . '"');
+
+      $row = $this->getTable()->fetchRow($select);
+
+      if (is_null($row)){
+        return false;
+    }
+
+     $model = $this->getModel($row);
+
+      return $model;
+          }
 
     public function fetchList(){
 

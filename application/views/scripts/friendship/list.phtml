@@ -1,0 +1,28 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Friendship</b> and script/action name <b>list</b></p>
+</div>
+
+<?php
+// the variable/array 'friendships' is generated and set in the
+// controller 'friendship' and action 'list'
+//
+// all functions to the model friendship like 'getId()' and 'getFirstname() are
+// functions of the model 'friendship' in the file 'models\friendship.php
+?>
+
+<div class="list-group">
+<?php foreach($this->friendships as $friendship): ?>
+<a href="<?php echo $this->url(array('controller' => 'friendship', 'action' => 'view', 'id' => $friendship->getId())); ?>" class="list-group-item ">
+<div class="media">
+  <div class="media-left">
+      <img alt="Generic placeholder image" class="media-object" data-src="holder.js/80x60">
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading"><?php echo '<b>' . $friendship->getPerson1() . '</b>'; ?></h5>
+    *<p><?php echo $friendship->getPerson2() . ' ' ?></p>
+  </div>
+</div>
+</a>
+<?php endforeach; ?>
+</div>

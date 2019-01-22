@@ -2,8 +2,8 @@
 
 class Application_Model_User{
 	protected $_id = null;
-    protected $_email = null;
-    protected $_password = null;
+    protected $_person1 = null;
+    protected $_person2 = null;
     protected $_createdate = null;
     protected $_updatedate = null;
     protected $_deletedate = null;
@@ -20,25 +20,25 @@ class Application_Model_User{
     }
 
 
-	public function setEmail($value){
+	public function setPerson1($value){
         if (is_string($value)){
-            $this->_email = $value;
+            $this->_person1 = $value;
         }
     }
 
-    public function getEmail(){
-        return $this->_email;
+    public function getPerson1(){
+        return $this->_person1;
     }
 
-	public function setPassword($value){
-        if (is_string($value)){
-            $this->_password = $value;
-        }
-    }
+		public function setPerson2($value){
+					if (is_string($value)){
+							$this->_person2 = $value;
+					}
+			}
 
-	public function getPassword(){
-        return $this->_password;
-    }
+			public function getPerson2(){
+					return $this->_person2;
+			}
 
 	public function setCreatedate($value){
         if (is_string($value)){
@@ -72,12 +72,12 @@ class Application_Model_User{
 
     public function toArray(){
         $data = array(
-            'user_id'					=> $this->getId(),
-            'user_email'			=> $this->getEmail(),
-            'user_password'		=> $this->getPassword(),
-            'user_createdate'	=> $this->getCreatedate(),
-            'user_updatedate'	=> $this->getUpdatedate(),
-            'user_deletedate'	=> $this->getDeletedate(),
+            'friendship_id'					=> $this->getId(),
+            'friendship_person1'		=> $this->getPerson1(),
+            'friendship_person2'		=> $this->getPaerson2(),
+            'user_createdate'				=> $this->getCreatedate(),
+            'user_updatedate'				=> $this->getUpdatedate(),
+            'user_deletedate'				=> $this->getDeletedate(),
         );
 
         return $data;
